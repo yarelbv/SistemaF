@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e6e6e6;
+    color: #000000;
+    margin: 30px;
+    padding: 0;
+}
+
+table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #6B5B95;
+    color: #FFFFFF;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #FFFFFF;
+}
+
+th {
+    background-color: #A89ECE;
+}
+
+tr:hover {
+    background-color: #8A817C;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Roboto', sans-serif;
+  }
+  h2 {
+    font-size: 30px;
+    font-weight: 400;
+  }
+  h3 {
+    font-size: 28px;
+    font-weight: 300;
+  }
+  p {
+    font-size: 15px;
+    line-height: 28px;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    
+  }
+  .button-regresar {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #8a63b4;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .button-regresar:hover {
+    background-color: #6f4a8e;
+  }
+
+  .button{
+    position: fixed;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #8a63b4;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .button:hover {
+    background-color: #6f4a8e;
+  }
+
+
+@media only screen and (max-width: 600px) {
+    body {
+        margin: 20px;
+    }
+    table {
+        font-size: 15px;
+    }
+    th, td {
+        padding: 20px;
+    }
+}
+
+/* Estilo para los input radio */
+input[type="radio"] {
+  flex-direction: column;
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
