@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busqueda Lineal</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Busqueda Lineal</h1>
+    <p>¿En qué consiste la búsqueda lineal y cuál es su enfoque principal en términos de exploración del arreglo?</p>
+    <form id="question1">
+        <label>
+            <input type="radio" name="answer1" value="a">La búsqueda lineal consiste en ordenar los datos y explorar el arreglo utilizando un enfoque de "fuerza bruta", revisando cada casilla de manera organizada.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="b">La búsqueda lineal consiste en dividir el arreglo por la mitad en cada paso y explorar solo la mitad de las casillas para encontrar el dato deseado.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="c">La búsqueda lineal consiste en explorar solo las casillas pares del arreglo hasta encontrar el dato deseado.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="d">La búsqueda lineal consiste en explorar todas las casillas del arreglo de manera directa y secuencial hasta encontrar el dato o llegar al final.<br>
+        </label>
+    </form>
+    <p>¿Por qué se menciona que la búsqueda lineal utiliza "fuerza bruta"?</p>
+    <form id="question2">
+        <label>
+            <input type="radio" name="answer2" value="a">Porque la búsqueda lineal implica revisar todas las casillas del arreglo de manera secuencial, sin aplicar técnicas más avanzadas de búsqueda.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="b">Porque la búsqueda lineal no requiere esfuerzo o estrategia, simplemente explora todas las casillas de manera directa.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="c">Porque la búsqueda lineal utiliza la fuerza física del hardware de la computadora para buscar el dato en el arreglo.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="d">Porque la búsqueda lineal es un método poco eficiente y agresivo para encontrar el dato deseado en el arreglo.<br>
+        </label>
+    </form>
+    <p>Según el texto, ¿cuándo podría ser más conveniente utilizar la búsqueda lineal en lugar de ordenar los datos y utilizar un algoritmo de búsqueda eficiente?</p>
+    <form id="question3">
+        <label>
+            <input type="radio" name="answer3" value="a">Cuando se busca un dato específico y el arreglo está desordenado, ya que ordenarlos llevaría demasiado tiempo.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="b">Cuando se busca un dato específico y el arreglo está ordenado, ya que la búsqueda lineal es más rápida en este caso.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="c">Siempre es más conveniente ordenar los datos antes de realizar cualquier búsqueda en el arreglo.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="d">Cuando se busca un dato ocasionalmente y el costo de ordenar los datos es mayor que el de realizar búsquedas lineales.<br>
+        </label>
+    </form>
+
+    <p>Desarrolla un programa en Python que simula un caso de búsqueda lineal. Una simulación de búsqueda de un elemento específico en una lista de contactos. Asegúrese de implementar la lógica de búsqueda lineal en su programa.</p>
+    <button type="button" class="button" onclick="verificarRespuestas()">Verificar</button>
+    <div id="resultContainer"></div>
+    <a href="/ContenidoIPC/8_BusquedaOrdenamiento/Busqueda.html" target="_blank">
+        <button class="button-regresar">Regresar</button>
+    </a>
+    <script>
+        function verificarRespuestas() {
+            // Obtener las respuestas seleccionadas por el usuario
+            var selectedAnswer1 = document.querySelector('input[name="answer1"]:checked');
+            var selectedAnswer2 = document.querySelector('input[name="answer2"]:checked');
+            var selectedAnswer3 = document.querySelector('input[name="answer3"]:checked');
+
+            // Verificar si se han seleccionado ambas respuestas
+            if (selectedAnswer1 && selectedAnswer2 && selectedAnswer3) {
+                var userAnswer1 = selectedAnswer1.value;
+                var userAnswer2 = selectedAnswer2.value;
+                var userAnswer3 = selectedAnswer3.value;
+
+                // Verificar las respuestas
+                if (userAnswer1 === "d" && userAnswer2 === "a" && userAnswer3 === "c") {
+                    mostrarResultado("¡Correcto!", true);
+                } else {
+                    mostrarResultado("Incorrecto. Inténtalo de nuevo.", false);
+                }
+            } else {
+                mostrarResultado("Por favor, selecciona una respuesta para cada pregunta.", false);
+            }
+        }
+
+        function mostrarResultado(mensaje, esCorrecto) {
+            var resultContainer = document.getElementById("resultContainer");
+
+            // Limpiar el contenedor de resultados
+            resultContainer.innerHTML = "";
+
+            // Crear un elemento de párrafo para mostrar el resultado
+            var resultadoParrafo = document.createElement("p");
+
+            // Establecer el contenido y el color del texto según si es correcto o incorrecto
+            resultadoParrafo.textContent = mensaje;
+            resultadoParrafo.style.color = esCorrecto ? "green" : "red";
+
+            // Agregar el párrafo al contenedor de resultados
+            resultContainer.appendChild(resultadoParrafo);
+        }
+    </script>
+</body>
+</html>

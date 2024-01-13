@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constantes</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Constantes</h1>
+    <p>¿Con qué se predefinen las constantes?</p>
+    <form id="question1">
+        <label>
+            <input type="radio" name="answer1" value="a">Se predefinen con valores aleatorios.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="b">Se predefinen con valores asignados durante la ejecución del programa.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="c">Se predefinen con valores específicos y fijos.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="d">Se predefinen con valores ingresados por el usuario.<br>
+        </label>
+    </form>
+    <p>¿A qué numero equivale TRUE?</p>
+    <form id="question2">
+        <label>
+            <input type="radio" name="answer2" value="a">0<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="b">1<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="c">-1<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="d">2<br>
+        </label>
+    </form>
+    <p>¿A qué numero equivale FALSE?</p>
+    <form id="question3">
+        <label>
+            <input type="radio" name="answer3" value="a">0<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="b">1<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="c">-1<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="d">NULL<br>
+        </label>
+    </form>
+    <button type="button" class="button" onclick="verificarRespuestas()">Verificar</button>
+    <div id="resultContainer"></div>
+    <a href="/ContenidoIPC/4_POO/Constantes.html" target="_blank">
+        <button class="button-regresar">Regresar</button>
+    </a>
+    <script>
+        function verificarRespuestas() {
+            // Obtener las respuestas seleccionadas por el usuario
+            var selectedAnswer1 = document.querySelector('input[name="answer1"]:checked');
+            var selectedAnswer2 = document.querySelector('input[name="answer2"]:checked');
+            var selectedAnswer3 = document.querySelector('input[name="answer3"]:checked');
+
+            // Verificar si se han seleccionado ambas respuestas
+            if (selectedAnswer1 && selectedAnswer2 && selectedAnswer3) {
+                var userAnswer1 = selectedAnswer1.value;
+                var userAnswer2 = selectedAnswer2.value;
+                var userAnswer3 = selectedAnswer3.value;
+
+                // Verificar las respuestas
+                if (userAnswer1 === "c" && userAnswer2 === "b" && userAnswer3 === "c") {
+                    mostrarResultado("¡Correcto!", true);
+                } else {
+                    mostrarResultado("Incorrecto. Inténtalo de nuevo.", false);
+                }
+            } else {
+                mostrarResultado("Por favor, selecciona una respuesta para cada pregunta.", false);
+            }
+        }
+
+        function mostrarResultado(mensaje, esCorrecto) {
+            var resultContainer = document.getElementById("resultContainer");
+
+            // Limpiar el contenedor de resultados
+            resultContainer.innerHTML = "";
+
+            // Crear un elemento de párrafo para mostrar el resultado
+            var resultadoParrafo = document.createElement("p");
+
+            // Establecer el contenido y el color del texto según si es correcto o incorrecto
+            resultadoParrafo.textContent = mensaje;
+            resultadoParrafo.style.color = esCorrecto ? "green" : "red";
+
+            // Agregar el párrafo al contenedor de resultados
+            resultContainer.appendChild(resultadoParrafo);
+        }
+    </script>
+</body>
+</html>

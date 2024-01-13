@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expresiones Lógicas</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Expresiones Lógicas</h1>
+    <p>¿Cuál es la finalidad del operador and en expresiones lógicas?</p>
+    <form id="question1">
+        <label>
+            <input type="radio" name="answer1" value="a">Devuelve true si ambas expresiones son verdaderas.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="b">Devuelve true si una o ambas expresiones son verdaderas.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="c">Devuelve true solo si ambas expresiones son falsas.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value=" d">Devuelve true solo si una de las expresiones es verdadera.<br>
+        </label>
+    </form>
+    <p>¿Cómo se determina el resultado de una expresión lógica según el proceso mencionado en el texto?</p>
+    <form id="question2">
+        <label>
+            <input type="radio" name="answer2" value="a">Se determina tomando el valor booleano efectivo (EBV) de cada operando y aplicando el operador solo a un operando.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="b">El resultado se determina sumando los valores de los operandos.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="c">El resultado se determina tomando el valor booleano efectivo (EBV) solo del primer operando.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="d">El resultado se determina evaluando el valor booleano efectivo (EBV) de cada operando y aplicando el operador a los valores booleanos efectivos de ambos operandos.<br>
+        </label>
+    </form>
+    <p>Crea un programa en Python que implementa expresiones lógicas utilizando los operadores and y or. Puedes definir variables booleanas y aplicar estos operadores para mostrar los resultados de las operaciones lógicas en la consola.</p>
+    <button type="button" class="button" onclick="verificarRespuestas()">Verificar</button>
+    <div id="resultContainer"></div>
+    <a href="/ContenidoIPC/5_Expresiones/Logicas.html" target="_blank">
+        <button class="button-regresar">Regresar</button>
+    </a>
+    <script>
+        function verificarRespuestas() {
+            // Obtener las respuestas seleccionadas por el usuario
+            var selectedAnswer1 = document.querySelector('input[name="answer1"]:checked');
+            var selectedAnswer2 = document.querySelector('input[name="answer2"]:checked');
+
+            // Verificar si se han seleccionado ambas respuestas
+            if (selectedAnswer1 && selectedAnswer2) {
+                var userAnswer1 = selectedAnswer1.value;
+                var userAnswer2 = selectedAnswer2.value;
+
+                // Verificar las respuestas
+                if (userAnswer1 === "a" && userAnswer2 === "d") {
+                    mostrarResultado("¡Correcto!", true);
+                } else {
+                    mostrarResultado("Incorrecto. Inténtalo de nuevo.", false);
+                }
+            } else {
+                mostrarResultado("Por favor, selecciona una respuesta para cada pregunta.", false);
+            }
+        }
+
+        function mostrarResultado(mensaje, esCorrecto) {
+            var resultContainer = document.getElementById("resultContainer");
+
+            // Limpiar el contenedor de resultados
+            resultContainer.innerHTML = "";
+
+            // Crear un elemento de párrafo para mostrar el resultado
+            var resultadoParrafo = document.createElement("p");
+
+            // Establecer el contenido y el color del texto según si es correcto o incorrecto
+            resultadoParrafo.textContent = mensaje;
+            resultadoParrafo.style.color = esCorrecto ? "green" : "red";
+
+            // Agregar el párrafo al contenedor de resultados
+            resultContainer.appendChild(resultadoParrafo);
+        }
+    </script>
+</body>
+</html>

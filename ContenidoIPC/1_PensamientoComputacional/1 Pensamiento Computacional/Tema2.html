@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Reconocimiento de patrones </title>
+</head>
+<body>
+    <h1>Reconocimiento de patrones </h1>
+    <p>¿Qué significa el término "Reconocer" en el contexto del reconocimiento de patrones?</p>
+    <form id="question1">
+        <label>
+            <input type="radio" name="answer1" value="Identificar un objeto entre varios, ya que dicho objeto posee características y atributos propios que lo diferencia del resto"> Identificar un objeto entre varios, ya que dicho objeto posee características y atributos propios que lo diferencia del resto<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="Clasificar objetos en grupos según sus atributos comunes"> Clasificar objetos en grupos según sus atributos comunes<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="Asignar objetos a clases sin distinguir sus atributos"> Asignar objetos a clases sin distinguir sus atributos<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value=" Extraer medidas y cualidades de un objeto"> Extraer medidas y cualidades de un objeto.<br>
+        </label>
+    </form>
+    <p>Objeto que presenta cierto comportamiento y características ya conocidas.</p>
+    <form id="question2">
+        <label>
+            <input type="radio" name="answer2" value="Grupo">Grupo<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="Clase">Clase<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="Atributo">Atributo<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="Patrón">Patrón<br>
+        </label>
+    </form>
+    <p>¿Qué término se utiliza para describir un grupo de objetos que comparten los mismos atributos y/o comportamientos en el contexto del reconocimiento de patrones?</p>
+    <form id="question3">
+        <label>
+            <input type="radio" name="answer3" value="Grupo">Grupo<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="Clase">Clase<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="Atributo">Atributo<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="Patrón">Patrón<br>
+        </label>
+    </form>
+    <p>¿Medida o cualidad extraíble?</p>
+    <form id="question4">
+        <label>
+            <input type="radio" name="answer4" value="Grupo">Grupo<br>
+        </label>
+        <label>
+            <input type="radio" name="answer4" value="Clase">Clase<br>
+        </label>
+        <label>
+            <input type="radio" name="answer4" value="Atributo">Atributo<br>
+        </label>
+        <label>
+            <input type="radio" name="answer4" value="Patrón">Patrón<br>
+        </label>
+    </form>
+   
+    <p>Corre el siguiente programa  </p>
+    <button type="button" class="button onclick="verificarRespuestas()">Verificar</button>
+    <div id="resultContainer"></div>
+    <a href="/ContenidoIPC/1_PensamientoComputacional/Reconocimiento.html" target="_blank">
+        <button class="button-regresar">Regresar</button>
+    </a>
+    <script>
+        function verificarRespuestas() {
+            // Obtener las respuestas seleccionadas por el usuario
+            var selectedAnswer1 = document.querySelector('input[name="answer1"]:checked');
+            var selectedAnswer2 = document.querySelector('input[name="answer2"]:checked');
+            var selectedAnswer3 = document.querySelector('input[name="answer3"]:checked');
+            var selectedAnswer4 = document.querySelector('input[name="answer4"]:checked');
+
+            // Verificar si se han seleccionado ambas respuestas
+            if (selectedAnswer1 && selectedAnswer2 && selectedAnswer3 && selectedAnswer4) {
+                var userAnswer1 = selectedAnswer1.value;
+                var userAnswer2 = selectedAnswer2.value;
+                var userAnswer3 = selectedAnswer3.value;
+                var userAnswer4 = selectedAnswer4.value;
+
+                // Verificar las respuestas
+                if (userAnswer1 === "Identificar un objeto entre varios, ya que dicho objeto posee características y atributos propios que lo diferencia del resto" && userAnswer2 === "Patrón" && userAnswer3 === "Clase" && userAnswer4 === "Atributo") {
+                    mostrarResultado("¡Correcto!", true);
+                } else {
+                    mostrarResultado("Incorrecto. Inténtalo de nuevo.", false);
+                }
+            } else {
+                mostrarResultado("Por favor, selecciona una respuesta para cada pregunta.", false);
+            }
+        }
+
+        function mostrarResultado(mensaje, esCorrecto) {
+            var resultContainer = document.getElementById("resultContainer");
+
+            // Limpiar el contenedor de resultados
+            resultContainer.innerHTML = "";
+
+            // Crear un elemento de párrafo para mostrar el resultado
+            var resultadoParrafo = document.createElement("p");
+
+            // Establecer el contenido y el color del texto según si es correcto o incorrecto
+            resultadoParrafo.textContent = mensaje;
+            resultadoParrafo.style.color = esCorrecto ? "green" : "red";
+
+            // Agregar el párrafo al contenedor de resultados
+            resultContainer.appendChild(resultadoParrafo);
+        }
+    </script>
+</body>
+</html>

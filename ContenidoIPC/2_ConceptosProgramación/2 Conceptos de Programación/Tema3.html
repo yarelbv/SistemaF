@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paradigmas de programación</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Paradigmas de programación</h1>
+    <p>¿De que trata el paradigma de programación imperativo?</p>
+    <form id="question1">
+        <label>
+            <input type="radio" name="answer1" value="a">El programador le indica a la máquina lo que quiere hacer, pero no el cómo hacerlo.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="b">El programador debe precisarle a la máquina de forma exacta el proceso que quiere realizar.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="c">La máquina tiene protagonismo y determina el proceso que se realizará.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="d">El programador indica a la máquina el resultado deseado, pero no el proceso.<br>
+        </label>
+    </form>
+    <p>¿De que trata el paradigma de programación declarativo?</p>
+    <form id="question2">
+        <label>
+            <input type="radio" name="answer2" value="a">El programador le indica a la máquina lo que quiere hacer, pero no el cómo hacerlo.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="b">El programador debe precisarle a la máquina de forma exacta el proceso que quiere realizar.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="c">La máquina tiene protagonismo y determina el proceso que se realizará.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="d">El programador indica a la máquina el resultado deseado, pero no el proceso.<br>
+        </label>
+    </form>
+    <p>¿Cuáles son los paradigmas más populares?</p>
+    <form id="question3">
+        <label>
+            <input type="radio" name="answer3" value="a">Programación imperativa y programación funcional.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="b">Programación orientada a objetos y programación declarativa.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="c">Programación estructurada y programación orientada a objetos.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="d">Programación estructurada y programación funcional.<br>
+        </label>
+    </form>
+    <p>¿Qué paradigma de programación es el que admite Python?</p>
+    <form id="question4">
+        <label>
+            <input type="radio" name="answer4" value="a">Programación declarativa y programación orientada a objetos.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer4" value="b">Programación estructurada y programación funcional.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer4" value="c">Programación imperativa y programación orientada a objetos.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer4" value="d">Programación funcional y programación orientada a procedimientos.<br>
+        </label>
+    </form>
+    
+    <button type="button" class="button" onclick="verificarRespuestas()">Verificar</button>
+    <div id="resultContainer"></div>
+    <a href="/ContenidoIPC/2_ConceptosProgramación/Paradigmas.html" target="_blank">
+        <button class="button-regresar">Regresar</button>
+    </a>
+    <script>
+        function verificarRespuestas() {
+            // Obtener las respuestas seleccionadas por el usuario
+            var selectedAnswer1 = document.querySelector('input[name="answer1"]:checked');
+            var selectedAnswer2 = document.querySelector('input[name="answer2"]:checked');
+            var selectedAnswer3 = document.querySelector('input[name="answer3"]:checked');
+            var selectedAnswer4 = document.querySelector('input[name="answer4"]:checked');
+
+            // Verificar si se han seleccionado ambas respuestas
+            if (selectedAnswer1 && selectedAnswer2 && selectedAnswer3 && selectedAnswer4) {
+                var userAnswer1 = selectedAnswer1.value;
+                var userAnswer2 = selectedAnswer2.value;
+                var userAnswer3 = selectedAnswer3.value;
+                var userAnswer4 = selectedAnswer4.value;
+
+                // Verificar las respuestas
+                if (userAnswer1 === "b" && userAnswer2 === "a" && userAnswer3 === "c" && userAnswer4 === "c") {
+                    mostrarResultado("¡Correcto!", true);
+                } else {
+                    mostrarResultado("Incorrecto. Inténtalo de nuevo.", false);
+                }
+            } else {
+                mostrarResultado("Por favor, selecciona una respuesta para cada pregunta.", false);
+            }
+        }
+
+        function mostrarResultado(mensaje, esCorrecto) {
+            var resultContainer = document.getElementById("resultContainer");
+
+            // Limpiar el contenedor de resultados
+            resultContainer.innerHTML = "";
+
+            // Crear un elemento de párrafo para mostrar el resultado
+            var resultadoParrafo = document.createElement("p");
+
+            // Establecer el contenido y el color del texto según si es correcto o incorrecto
+            resultadoParrafo.textContent = mensaje;
+            resultadoParrafo.style.color = esCorrecto ? "green" : "red";
+
+            // Agregar el párrafo al contenedor de resultados
+            resultContainer.appendChild(resultadoParrafo);
+        }
+    </script>
+</body>
+</html>

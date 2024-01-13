@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lenguajes de Programación</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Lenguajes de Programación</h1>
+    <p>¿Cuál de estos es un lenguaje de programación?</p>
+    <form id="question1">
+        <label>
+            <input type="radio" name="answer1" value="a">Compilador <br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="b">Clasificar objetos en grupos según sus atributos comunes<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="c">Machine Learning<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="d">SQL<br>
+        </label>
+    </form>
+    <p>¿Cuál es la función princupal de los lenguajes de programación?</p>
+    <form id="question2">
+        <label>
+            <input type="radio" name="answer2" value="a">¿Cuál es la función princupal de los lenguajes de programación?<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="b">Definir el tipo de datos y acciones disponibles.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="c">Convertir código fuente en código binario.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="d">Facilitar la comunicación usuario-máquina.<br>
+        </label>
+    </form>
+    <p>¿Qué es un lenguaje de programación?</p>
+    <form id="question3">
+        <label>
+            <input type="radio" name="answer3" value="a">Un conjunto de reglas sintácticas y semánticas para definir acciones.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="b">Un compilador que convierte instrucciones a lenguaje máquina.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="c">Un conjunto de palabras en inglés para comunicarse con una máquina.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="d">Un programa especial para ejecutar código fuente.<br>
+        </label>
+    </form>
+    <p>¿Qué lenguaje de programación se menciona que es eficiente y fácil de entender?</p>
+    <form id="question4">
+        <label>
+            <input type="radio" name="answer4" value="a">Python<br>
+        </label>
+        <label>
+            <input type="radio" name="answer4" value="b">C++<br>
+        </label>
+        <label>
+            <input type="radio" name="answer4" value="c">Java<br>
+        </label>
+        <label>
+            <input type="radio" name="answer4" value="d">Ruby<br>
+        </label>
+    </form>
+   
+    <p>Realiza la suma de dos números con el lenguaje de Python.</p>
+    <button type="button" class="button" onclick="verificarRespuestas()">Verificar</button>
+    <div id="resultContainer"></div>
+    <a href="/ContenidoIPC/2_ConceptosProgramación/Lenguajes.html" target="_blank">
+        <button class="button-regresar">Regresar</button>
+    </a>
+    <script>
+        function verificarRespuestas() {
+            // Obtener las respuestas seleccionadas por el usuario
+            var selectedAnswer1 = document.querySelector('input[name="answer1"]:checked');
+            var selectedAnswer2 = document.querySelector('input[name="answer2"]:checked');
+            var selectedAnswer3 = document.querySelector('input[name="answer3"]:checked');
+            var selectedAnswer4 = document.querySelector('input[name="answer4"]:checked');
+
+            // Verificar si se han seleccionado ambas respuestas
+            if (selectedAnswer1 && selectedAnswer2 && selectedAnswer3 && selectedAnswer4) {
+                var userAnswer1 = selectedAnswer1.value;
+                var userAnswer2 = selectedAnswer2.value;
+                var userAnswer3 = selectedAnswer3.value;
+                var userAnswer4 = selectedAnswer4.value;
+
+                // Verificar las respuestas
+                if (userAnswer1 === "d" && userAnswer2 === "d" && userAnswer3 === "c" && userAnswer4 === "a") {
+                    mostrarResultado("¡Correcto!", true);
+                } else {
+                    mostrarResultado("Incorrecto. Inténtalo de nuevo.", false);
+                }
+            } else {
+                mostrarResultado("Por favor, selecciona una respuesta para cada pregunta.", false);
+            }
+        }
+
+        function mostrarResultado(mensaje, esCorrecto) {
+            var resultContainer = document.getElementById("resultContainer");
+
+            // Limpiar el contenedor de resultados
+            resultContainer.innerHTML = "";
+
+            // Crear un elemento de párrafo para mostrar el resultado
+            var resultadoParrafo = document.createElement("p");
+
+            // Establecer el contenido y el color del texto según si es correcto o incorrecto
+            resultadoParrafo.textContent = mensaje;
+            resultadoParrafo.style.color = esCorrecto ? "green" : "red";
+
+            // Agregar el párrafo al contenedor de resultados
+            resultContainer.appendChild(resultadoParrafo);
+        }
+    </script>
+</body>
+</html>

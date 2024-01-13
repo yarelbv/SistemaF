@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos de Acceso</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Métodos de Acceso</h1>
+    <p>¿Cuáles son las funciones de los métodos de acceso en un mainframe?</p>
+    <form id="question1">
+        <label>
+            <input type="radio" name="answer1" value="a">Mover datos entre una computadora y un dispositivo de almacenamiento externo.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="b">Ejecutar operaciones en dispositivos externos.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="c">Acceder a datos ubicados dentro de una gran unidad de datos.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="d">Todas las anteriores.<br>
+        </label>
+    </form>
+    <p>¿Cuál es la diferencia entre un método de acceso y una API en términos de su función en el acceso a datos?</p>
+    <form id="question2">
+        <label>
+            <input type="radio" name="answer2" value="a">Un método de acceso se utiliza para acceder a datos en dispositivos externos, mientras que una API es un controlador del sistema operativo.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="b">Ambos términos se refieren a lo mismo y se utilizan indistintamente.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="c">Un método de acceso es una solución de hardware o software, mientras que una API es una interfaz de programación de aplicaciones que permite la comunicación entre diferentes programas.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="d">Un método de acceso solo se refiere al acceso a datos dentro de una gran unidad de datos, mientras que una API ejecuta operaciones en dispositivos externos.<br>
+        </label>
+    </form>
+    <p>¿Cuál es el propósito de los métodos de acceso ?</p>
+    <form id="question3">
+        <label>
+            <input type="radio" name="answer3" value="a">Facilitar la interacción entre dispositivos de almacenamiento externo y computadoras.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="b">Permitir la comunicación entre sistemas operativos.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="c">Controlar la ejecución de aplicaciones en mainframes.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="d">Proporcionar funciones de red en sistemas operativos.<br>
+        </label>
+    </form>
+
+    <p>Crea un programa en Python que simule la lectura y escritura de datos desde y hacia un archivo utilizando métodos de acceso. El programa debe tener las siguientes funciones:</p>
+    <ul>
+        <li>escribir_en_archivo(datos, nombre_archivo): Esta función toma una lista de datos y un nombre de archivo como parámetros y escribe esos datos en el archivo. Cada elemento de la lista debe escribirse en una nueva línea.</li>
+        <li>leer_desde_archivo(nombre_archivo): Esta función lee los datos del archivo especificado y los muestra en la consola.</li>
+    </ul>
+    <button type="button" class="button" onclick="verificarRespuestas()">Verificar</button>
+    <div id="resultContainer"></div>
+    <a href="/ContenidoIPC/4_POO/Metodos.html" target="_blank">
+        <button class="button-regresar">Regresar</button>
+    </a>
+    <script>
+        function verificarRespuestas() {
+            // Obtener las respuestas seleccionadas por el usuario
+            var selectedAnswer1 = document.querySelector('input[name="answer1"]:checked');
+            var selectedAnswer2 = document.querySelector('input[name="answer2"]:checked');
+            var selectedAnswer3 = document.querySelector('input[name="answer3"]:checked');
+
+            // Verificar si se han seleccionado ambas respuestas
+            if (selectedAnswer1 && selectedAnswer2 && selectedAnswer3) {
+                var userAnswer1 = selectedAnswer1.value;
+                var userAnswer2 = selectedAnswer2.value;
+                var userAnswer3 = selectedAnswer3.value;
+
+                // Verificar las respuestas
+                if (userAnswer1 === "d" && userAnswer2 === "c" && userAnswer3 === "a") {
+                    mostrarResultado("¡Correcto!", true);
+                } else {
+                    mostrarResultado("Incorrecto. Inténtalo de nuevo.", false);
+                }
+            } else {
+                mostrarResultado("Por favor, selecciona una respuesta para cada pregunta.", false);
+            }
+        }
+
+        function mostrarResultado(mensaje, esCorrecto) {
+            var resultContainer = document.getElementById("resultContainer");
+
+            // Limpiar el contenedor de resultados
+            resultContainer.innerHTML = "";
+
+            // Crear un elemento de párrafo para mostrar el resultado
+            var resultadoParrafo = document.createElement("p");
+
+            // Establecer el contenido y el color del texto según si es correcto o incorrecto
+            resultadoParrafo.textContent = mensaje;
+            resultadoParrafo.style.color = esCorrecto ? "green" : "red";
+
+            // Agregar el párrafo al contenedor de resultados
+            resultContainer.appendChild(resultadoParrafo);
+        }
+    </script>
+</body>
+</html>

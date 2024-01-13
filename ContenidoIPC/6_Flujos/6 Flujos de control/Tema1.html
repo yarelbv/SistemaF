@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables de Control</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Variables de Control</h1>
+    <p>¿Cómo se define una variable controlada en el contexto de un experimento?</p>
+    <form id="question1">
+        <label>
+            <input type="radio" name="answer1" value="a">Una variable que varía de manera significativa para validar los resultados del experimento.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="b">Una variable que forma parte de las variables dependientes en un experimento.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="c">Una variable que se mantiene constante o bajo control para no afectar los resultados del experimento.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="d">Una variable que se utiliza como variable independiente en el experimento.<br>
+        </label>
+    </form>
+    <p>¿Cuál es la importancia de mantener una variable como controlada durante la ejecución de un experimento?</p>
+    <form id="question2">
+        <label>
+            <input type="radio" name="answer2" value="a">Para que la variable controlada intervenga directamente en la variable independiente.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="b">Para que la variación de la variable controlada no invalide los resultados del experimento.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="c">Para utilizar la variable controlada como la única variable independiente.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="d">Para validar los resultados del experimento mediante la variación de la variable controlada.<br>
+        </label>
+    </form>
+    <p>¿Qué característica define a los acumuladores y cómo se inicializan generalmente?</p>
+    <form id="question3">
+        <label>
+            <input type="radio" name="answer3" value="a">Los acumuladores se caracterizan por variar de manera significativa durante la ejecución del experimento.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="b">Los acumuladores generalmente se inicializan con un valor constante y no varían.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="c">Los acumuladores se utilizan como variables dependientes en un experimento.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="d">Los acumuladores se caracterizan por acumular o sumar valores a lo largo del tiempo.<br>
+        </label>
+    </form>
+    <p>¿Cómo se utiliza un centinela en programación y cuál es su aplicación más habitual?</p>
+    <form id="question4">
+        <label>
+            <input type="radio" name="answer4" value="a">Un centinela se utiliza como un valor especial que indica el final de una secuencia de datos.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer4" value="b">Un centinela se utiliza para intervenir directamente en las variables dependientes.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer4" value="c">Un centinela se utiliza para detener la ejecución de un programa de manera abrupta.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer4" value="d">Un centinela se utiliza para inicializar variables en programación.<br>
+        </label>
+    </form>
+    <p>¿Cuál es la función principal de una bandera o interruptor en programación y cómo se representa?</p>
+    <form id="question5">
+        <label>
+            <input type="radio" name="answer5" value="a">La función principal de una bandera o interruptor es indicar el final de una secuencia de datos y se representa mediante un valor especial.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer5" value="b">La función principal de una bandera o interruptor es intervenir directamente en las variables dependientes y se representa mediante un número entero.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer5" value="c">La función principal de una bandera o interruptor es acumular valores a lo largo del tiempo y se representa mediante un valor especial.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer5" value="d"> La función principal de una bandera o interruptor es controlar la ejecución de ciertas partes del programa y se representa mediante un valor booleano.<br>
+        </label>
+    </form>
+    <p>Crea un programa en Python que simule el uso de una variable contador, una variable centinela, una bandera y un acumulador. Utiliza bucles o estructuras de control para demostrar su funcionalidad y cómo se actualizan sus valores en diferentes situaciones.</p>
+    <button type="button" class="button" onclick="verificarRespuestas()">Verificar</button>
+    <div id="resultContainer"></div>
+    <a href="/ContenidoIPC/6_Flujos/Variables.html" target="_blank">
+        <button class="button-regresar">Regresar</button>
+    </a>
+    <script>
+        function verificarRespuestas() {
+            // Obtener las respuestas seleccionadas por el usuario
+            var selectedAnswer1 = document.querySelector('input[name="answer1"]:checked');
+            var selectedAnswer2 = document.querySelector('input[name="answer2"]:checked');
+            var selectedAnswer3 = document.querySelector('input[name="answer3"]:checked');
+            var selectedAnswer4 = document.querySelector('input[name="answer4"]:checked');
+            var selectedAnswer5 = document.querySelector('input[name="answer5"]:checked');
+
+            // Verificar si se han seleccionado ambas respuestas
+            if (selectedAnswer1 && selectedAnswer2 && selectedAnswer3 && selectedAnswer4 && selectedAnswer5) {
+                var userAnswer1 = selectedAnswer1.value;
+                var userAnswer2 = selectedAnswer2.value;
+                var userAnswer3 = selectedAnswer3.value;
+                var userAnswer4 = selectedAnswer4.value;
+                var userAnswer4 = selectedAnswer5.value;
+
+                // Verificar las respuestas
+                if (userAnswer1 === "c" && userAnswer2 === "b" && userAnswer3 === "d" && userAnswer4 === "a"&& userAnswer5 === "d") {
+                    mostrarResultado("¡Correcto!", true);
+                } else {
+                    mostrarResultado("Incorrecto. Inténtalo de nuevo.", false);
+                }
+            } else {
+                mostrarResultado("Por favor, selecciona una respuesta para cada pregunta.", false);
+            }
+        }
+
+        function mostrarResultado(mensaje, esCorrecto) {
+            var resultContainer = document.getElementById("resultContainer");
+
+            // Limpiar el contenedor de resultados
+            resultContainer.innerHTML = "";
+
+            // Crear un elemento de párrafo para mostrar el resultado
+            var resultadoParrafo = document.createElement("p");
+
+            // Establecer el contenido y el color del texto según si es correcto o incorrecto
+            resultadoParrafo.textContent = mensaje;
+            resultadoParrafo.style.color = esCorrecto ? "green" : "red";
+
+            // Agregar el párrafo al contenedor de resultados
+            resultContainer.appendChild(resultadoParrafo);
+        }
+    </script>
+</body>
+</html>

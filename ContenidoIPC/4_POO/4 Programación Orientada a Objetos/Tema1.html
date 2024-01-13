@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos abstractos</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Datos abstractos</h1>
+    <p>¿Qué es un Tipo de Dato Abstracto (TDA)?</p>
+    <form id="question1">
+        <label>
+            <input type="radio" name="answer1" value="a">Una interfaz gráfica para interactuar con una aplicación.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="b"> Un conjunto de datos u objetos al cual se le asocian operaciones.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="c">Una estructura de datos utilizada en programación.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="d">Un enfoque de programación orientado a objetos.<br>
+        </label>
+    </form>
+    <p>Escribe un pequeño programa, el cual te pida dos números y el primero que escribas sea el último en imprimirse en pantalla, mientras que el segundo que pida sea el primero en imprimirse en pantalla, utilizando las pilas.</p>
+    
+    <button type="button" class="button" onclick="verificarRespuestas()">Verificar</button>
+    <div id="resultContainer"></div>
+    <a href="/ContenidoIPC/4_POO/Tipos.html" target="_blank">
+        <button class="button-regresar">Regresar</button>
+    </a>
+    <script>
+        function verificarRespuestas() {
+            // Obtener las respuestas seleccionadas por el usuario
+            var selectedAnswer1 = document.querySelector('input[name="answer1"]:checked');
+
+            // Verificar si se han seleccionado ambas respuestas
+            if (selectedAnswer1) {
+                var userAnswer1 = selectedAnswer1.value;
+                // Verificar las respuestas
+                if (userAnswer1 === "b") {
+                    mostrarResultado("¡Correcto!", true);
+                } else {
+                    mostrarResultado("Incorrecto. Inténtalo de nuevo.", false);
+                }
+            } else {
+                mostrarResultado("Por favor, selecciona una respuesta para cada pregunta.", false);
+            }
+        }
+
+        function mostrarResultado(mensaje, esCorrecto) {
+            var resultContainer = document.getElementById("resultContainer");
+
+            // Limpiar el contenedor de resultados
+            resultContainer.innerHTML = "";
+
+            // Crear un elemento de párrafo para mostrar el resultado
+            var resultadoParrafo = document.createElement("p");
+
+            // Establecer el contenido y el color del texto según si es correcto o incorrecto
+            resultadoParrafo.textContent = mensaje;
+            resultadoParrafo.style.color = esCorrecto ? "green" : "red";
+
+            // Agregar el párrafo al contenedor de resultados
+            resultContainer.appendChild(resultadoParrafo);
+        }
+    </script>
+</body>
+</html>

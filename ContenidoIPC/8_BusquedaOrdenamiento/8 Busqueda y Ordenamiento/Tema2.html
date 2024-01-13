@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenamientos</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Ordenamientos</h1>
+    <p>¿Cuál es el otro nombre coloquial del método de intercambio directo y por qué se menciona que es utilizado entre estudiantes principiantes de computación?</p>
+    <form id="question1">
+        <label>
+            <input type="radio" name="answer1" value="a">El método de intercambio directo también se conoce como "Selección directa" y se menciona que es utilizado por su eficiencia en grandes conjuntos de datos.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="b">El método de intercambio directo también se conoce como "Burbuja" y se menciona que es utilizado entre estudiantes principiantes de computación debido a su simplicidad, aunque es ineficiente.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="c">El método de intercambio directo también se conoce como "Inserción directa" y se menciona que es utilizado por su eficiencia en conjuntos de datos pequeños.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="d">El método de intercambio directo también se conoce como "Inserción directa" y se menciona que es utilizado por su rapidez en la programación de algoritmos.<br>
+        </label>
+    </form>
+    <p>En el método de ordenamiento por selección, ¿cuántos intercambios se realizan por cada pasada a través de la lista y cuál es su objetivo principal?</p>
+    <form id="question2">
+        <label>
+            <input type="radio" name="answer2" value="a">Se realizan múltiples intercambios por cada pasada para buscar el valor menor en la lista.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="b">Se realiza un solo intercambio por cada pasada para buscar el valor menor en la lista.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="c">No se realizan intercambios en el método de ordenamiento por selección.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="d">Se realiza un solo intercambio por cada pasada para buscar el valor mayor en la lista.<br>
+        </label>
+    </form>
+    <p>En el método de ordenamiento por inserción directa, ¿cómo se comparan los elementos desordenados con los ordenados y cuál es la estrategia principal de este método para ordenar un array?</p>
+    <form id="question3">
+        <label>
+            <input type="radio" name="answer3" value="a">Se comparan los elementos desordenados con los ordenados mediante múltiples intercambios, y la estrategia principal es buscar el elemento menor y llevarlo al final del array.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="b">Se comparan los elementos desordenados con los ordenados mediante la búsqueda del elemento mayor, y la estrategia principal es colocar el elemento en la ubicación correcta entre los elementos anteriores a él.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="c">Se comparan los elementos desordenados con los ordenados mediante la búsqueda del elemento menor, y la estrategia principal es llevarlo al inicio del array.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="d"> No se comparan los elementos en el método de ordenamiento por inserción directa; simplemente se recorren y se colocan en su posición original.<br>
+        </label>
+    </form>
+    <p>¿Cuántas pasadas requiere el método de selección para ordenar 𝑛 ítems y por qué se menciona que el ítem final debe estar en su lugar después de la (𝑛−1)-ésima pasada?</p>
+    <form id="question4">
+        <label>
+            <input type="radio" name="answer4" value="a">Requiere 𝑛 pasadas, y se menciona que el ítem final debe estar en su lugar después de la (𝑛−1)-ésima pasada porque se ordenan en orden descendente.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer4" value="b">Requiere 𝑛−1 pasadas, y se menciona que el ítem final debe estar en su lugar después de la (𝑛−1)-ésima pasada porque se realiza un solo intercambio por pasada.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer4" value="c">Requiere 𝑛−/2pasadas, y se menciona que el ítem final debe estar en su lugar después de la (𝑛−1)-ésima pasada porque se busca el valor mayor.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer4" value="d">Requiere 2𝑛 pasadas, y se menciona que el ítem final debe estar en su lugar después de la (𝑛−1)-ésima pasada porque se realizan dos intercambios por pasada.<br>
+        </label>
+    </form>
+    <p>¿Cuál es la característica principal del algoritmo de ordenamiento por inserción y cuál es el criterio que utiliza para seleccionar y comparar elementos en cada iteración?</p>
+    <form id="question5">
+        <label>
+            <input type="radio" name="answer5" value="a">La característica principal es realizar múltiples intercambios, y el criterio es seleccionar el elemento mayor en cada iteración.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer5" value="b">La característica principal es buscar el elemento menor en cada iteración, y el criterio es comparar los elementos desordenados con los ordenados.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer5" value="c">La característica principal es llevar los elementos a la parte derecha del array, y el criterio es comparar los elementos por sus índices.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer5" value="d">La característica principal es recorrer el array desde el final hacia el principio, y el criterio es comparar los elementos por sus valores.<br>
+        </label>
+    </form>
+    <p>Crea un programa en Python que simule la aplicación de uno de los métodos de ordenamiento mencionados (intercambio directo, selección o inserción directas) en una situación de la vida real. Puede ser una simulación de la organización de tareas, nombres de estudiantes, o cualquier lista que requiera ser ordenada. Asegúrese de implementar la lógica del método de ordenamiento seleccionado.</p>
+    <button type="button" class="button" onclick="verificarRespuestas()">Verificar</button>
+    <div id="resultContainer"></div>
+    <a href="/ContenidoIPC/8_BusquedaOrdenamiento/Ordenamiento.html" target="_blank">
+        <button class="button-regresar">Regresar</button>
+    </a>
+    <script>
+        function verificarRespuestas() {
+            // Obtener las respuestas seleccionadas por el usuario
+            var selectedAnswer1 = document.querySelector('input[name="answer1"]:checked');
+            var selectedAnswer2 = document.querySelector('input[name="answer2"]:checked');
+            var selectedAnswer3 = document.querySelector('input[name="answer3"]:checked');
+            var selectedAnswer4 = document.querySelector('input[name="answer4"]:checked');
+            var selectedAnswer5 = document.querySelector('input[name="answer5"]:checked');
+
+            // Verificar si se han seleccionado ambas respuestas
+            if (selectedAnswer1 && selectedAnswer2 && selectedAnswer3 && selectedAnswer4 && selectedAnswer5) {
+                var userAnswer1 = selectedAnswer1.value;
+                var userAnswer2 = selectedAnswer2.value;
+                var userAnswer3 = selectedAnswer3.value;
+                var userAnswer4 = selectedAnswer4.value;
+                var userAnswer4 = selectedAnswer5.value;
+
+                // Verificar las respuestas
+                if (userAnswer1 === "b" && userAnswer2 === "d" && userAnswer3 === "c" && userAnswer4 === "b"&& userAnswer5 === "b") {
+                    mostrarResultado("¡Correcto!", true);
+                } else {
+                    mostrarResultado("Incorrecto. Inténtalo de nuevo.", false);
+                }
+            } else {
+                mostrarResultado("Por favor, selecciona una respuesta para cada pregunta.", false);
+            }
+        }
+
+        function mostrarResultado(mensaje, esCorrecto) {
+            var resultContainer = document.getElementById("resultContainer");
+
+            // Limpiar el contenedor de resultados
+            resultContainer.innerHTML = "";
+
+            // Crear un elemento de párrafo para mostrar el resultado
+            var resultadoParrafo = document.createElement("p");
+
+            // Establecer el contenido y el color del texto según si es correcto o incorrecto
+            resultadoParrafo.textContent = mensaje;
+            resultadoParrafo.style.color = esCorrecto ? "green" : "red";
+
+            // Agregar el párrafo al contenedor de resultados
+            resultContainer.appendChild(resultadoParrafo);
+        }
+    </script>
+</body>
+</html>

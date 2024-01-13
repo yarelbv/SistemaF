@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación y depuración (Pruebas)</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Verificación y depuración (Pruebas)</h1>
+    <p>¿Cuáles son los 3 tipos de errores que existen?</p>
+    <form id="question1">
+        <label>
+            <input type="radio" name="answer1" value="a">Errores de ejecución, errores de compilación y errores de diseño.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="b">Errores de sintaxis, errores de ejecución y errores lógicos.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="c">Errores de diseño, errores de sintaxis y errores de ejecución.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="d">Errores de compilación, errores de diseño y errores de ejecución.<br>
+        </label>
+    </form>
+    <button type="button" class="button" onclick="verificarRespuestas()">Verificar</button>
+    <div id="resultContainer"></div>
+    <a href="/ContenidoIPC/3_MetodologíaProblemas/Verificacion.html" target="_blank">
+        <button class="button-regresar">Regresar</button>
+    </a>
+    <script>
+        function verificarRespuestas() {
+            // Obtener las respuestas seleccionadas por el usuario
+            var selectedAnswer1 = document.querySelector('input[name="answer1"]:checked');
+            // Verificar si se han seleccionado ambas respuestas
+            if (selectedAnswer1) {
+                var userAnswer1 = selectedAnswer1.value;
+
+                // Verificar las respuestas
+                if (userAnswer1 === "b") {
+                    mostrarResultado("¡Correcto!", true);
+                } else {
+                    mostrarResultado("Incorrecto. Inténtalo de nuevo.", false);
+                }
+            } else {
+                mostrarResultado("Por favor, selecciona una respuesta para cada pregunta.", false);
+            }
+        }
+
+        function mostrarResultado(mensaje, esCorrecto) {
+            var resultContainer = document.getElementById("resultContainer");
+
+            // Limpiar el contenedor de resultados
+            resultContainer.innerHTML = "";
+
+            // Crear un elemento de párrafo para mostrar el resultado
+            var resultadoParrafo = document.createElement("p");
+
+            // Establecer el contenido y el color del texto según si es correcto o incorrecto
+            resultadoParrafo.textContent = mensaje;
+            resultadoParrafo.style.color = esCorrecto ? "green" : "red";
+
+            // Agregar el párrafo al contenedor de resultados
+            resultContainer.appendChild(resultadoParrafo);
+        }
+    </script>
+</body>
+</html>

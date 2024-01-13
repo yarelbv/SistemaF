@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arreglo Bidimensional</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Arreglo Bidimensional</h1>
+    <p>¿Cómo se define un arreglo bidimensional y qué lo distingue en términos de estructura de datos?</p>
+    <form id="question1">
+        <label>
+            <input type="radio" name="answer1" value="a">Un arreglo bidimensional se define como una tabla de valores con elementos identificados por su posición mediante dos índices: el de su fila y el de su columna, y se distingue por tener dos dimensiones: filas y columnas.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="b">Un arreglo bidimensional se define como una estructura de datos utilizada exclusivamente en matemáticas para problemas de Ingeniería, y se distingue por tener dos dimensiones: renglones y columnas.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="c">Un arreglo bidimensional se define como una tabla de valores con elementos identificados por su posición mediante un único índice, y se distingue por tener dos dimensiones: filas y columnas.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="d">Un arreglo bidimensional se define como una tabla de valores con elementos identificados por su posición en la memoria, y se distingue por tener una única dimensión.<br>
+        </label>
+    </form>
+    <p>En matemáticas, ¿a qué se les llama a los arreglos bidimensionales y en qué tipo de problemas son utilizados?</p>
+    <form id="question2">
+        <label>
+            <input type="radio" name="answer2" value="a">En matemáticas, a los arreglos bidimensionales se les llama matrices, y son utilizados exclusivamente en problemas de estadísticas.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="b">En matemáticas, a los arreglos bidimensionales se les llama tablas de valores, y son utilizados en problemas de álgebra.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="c">En matemáticas, a los arreglos bidimensionales se les llama matrices, y son utilizados en problemas de Ingeniería.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="d">En matemáticas, a los arreglos bidimensionales se les llama estructuras de datos, y son utilizados en problemas de programación.<br>
+        </label>
+    </form>
+    <p>En un arreglo bidimensional, ¿cómo se identifica la posición de cada elemento y cuántos índices se utilizan para este propósito?</p>
+    <form id="question3">
+        <label>
+            <input type="radio" name="answer3" value="a">Cada elemento se identifica por un único índice, que indica su posición en la memoria.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="b">Cada elemento se identifica por dos índices: uno para su posición en la fila y otro para su posición en la columna.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="c">Cada elemento se identifica por tres índices: uno para su posición en la fila, otro para su posición en la columna, y un tercero para su posición en la memoria.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="d">No es necesario utilizar índices para identificar la posición de los elementos en un arreglo bidimensional.<br>
+        </label>
+    </form>
+
+    <p>Crea un programa en Python que muestre una tabla de calificaciones donde se utiliza un arreglo bidimensional para representar una tabla. Puede ser una donde se almacenen datos organizados en filas y columnas. Asegúrese de asignar valores a diferentes elementos de la matriz y de mostrar cómo se accede a estos valores utilizando índices. Asegúrese de declarar el arreglo con un tamaño específico y asignar valores a sus elementos.</p>
+    <button type="button" class="button" onclick="verificarRespuestas()">Verificar</button>
+    <div id="resultContainer"></div>
+    <a href="/ContenidoIPC/7_DatosEstructurados/Bidimensional.html" target="_blank">
+        <button class="button-regresar">Regresar</button>
+    </a>
+    <script>
+        function verificarRespuestas() {
+            // Obtener las respuestas seleccionadas por el usuario
+            var selectedAnswer1 = document.querySelector('input[name="answer1"]:checked');
+            var selectedAnswer2 = document.querySelector('input[name="answer2"]:checked');
+            var selectedAnswer3 = document.querySelector('input[name="answer3"]:checked');
+
+            // Verificar si se han seleccionado ambas respuestas
+            if (selectedAnswer1 && selectedAnswer2 && selectedAnswer3) {
+                var userAnswer1 = selectedAnswer1.value;
+                var userAnswer2 = selectedAnswer2.value;
+                var userAnswer3 = selectedAnswer3.value;
+
+                // Verificar las respuestas
+                if (userAnswer1 === "a" && userAnswer2 === "c" && userAnswer3 === "b") {
+                    mostrarResultado("¡Correcto!", true);
+                } else {
+                    mostrarResultado("Incorrecto. Inténtalo de nuevo.", false);
+                }
+            } else {
+                mostrarResultado("Por favor, selecciona una respuesta para cada pregunta.", false);
+            }
+        }
+
+        function mostrarResultado(mensaje, esCorrecto) {
+            var resultContainer = document.getElementById("resultContainer");
+
+            // Limpiar el contenedor de resultados
+            resultContainer.innerHTML = "";
+
+            // Crear un elemento de párrafo para mostrar el resultado
+            var resultadoParrafo = document.createElement("p");
+
+            // Establecer el contenido y el color del texto según si es correcto o incorrecto
+            resultadoParrafo.textContent = mensaje;
+            resultadoParrafo.style.color = esCorrecto ? "green" : "red";
+
+            // Agregar el párrafo al contenedor de resultados
+            resultContainer.appendChild(resultadoParrafo);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asignación</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Asignación</h1>
+    <p>¿Cuál es la diferencia entre el operador += y el operador = en términos de su función?</p>
+    <form id="question1">
+        <label>
+            <input type="radio" name="answer1" value="a">+= almacena el valor del segundo operando en el objeto especificado por el primer operando, mientras que = suma el valor del segundo operando al valor del primer operando.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="b">Ambos operadores realizan la misma función de asignación en términos de su resultado final.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="c">= realiza una operación de OR inclusivo bit a bit, mientras que += asigna el valor del segundo operando al objeto especificado por el primer operando.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="d">= realiza una asignación simple, mientras que += suma el valor del segundo operando al valor del primer operando y luego almacena el resultado.<br>
+        </label>
+    </form>
+    <p>¿Qué hace el operador &=en relación con los operadores involucrados?</p>
+    <form id="question2">
+        <label>
+            <input type="radio" name="answer2" value="a">Realiza una asignación simple del primer operando al objeto especificado por el segundo operando.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="b">Obtiene el AND bit a bit del primer y el segundo operando; almacena el resultado en el objeto especificado por el primer operando.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="c">Desplaza a la izquierda el valor del primer operando el número de bits especificado por el valor del segundo operando; almacena el resultado en el objeto especificado por el primer operando.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="d"> Realiza una operación de OR inclusivo bit a bit del primer y el segundo operando; almacena el resultado en el objeto especificado por el primer operando.<br>
+        </label>
+    </form>
+    <p>¿Cómo diferencia el operador <<= del operador >>= en su acción sobre los operandos?</p>
+    <form id="question3">
+        <label>
+            <input type="radio" name="answer3" value="a"><<= realiza un desplazamiento a la izquierda del valor del primer operando, mientras que >>= realiza un desplazamiento a la derecha.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="b"><<= realiza un desplazamiento a la derecha del valor del primer operando, mientras que >>= realiza un desplazamiento a la izquierda.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="c">Ambos operadores realizan un desplazamiento a la izquierda del valor del primer operando.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="d"><<= y >>= realizan la misma operación de desplazamiento, pero el primero usa un número de bits especificado por el segundo operando, mientras que el segundo usa un número de bits especificado por el primer operando.<br>
+        </label>
+    </form>
+
+    <p>Crea un programa en Python que utilice al menos tres de los operadores de asignación mencionados en la tabla (pueden ser diferentes a los ejemplos dados) para modificar el valor de una variable. Luego, imprime el valor original y el valor modificado de la variable.</p>
+    <button type="button" class="button" onclick="verificarRespuestas()">Verificar</button>
+    <div id="resultContainer"></div>
+    <a href="/ContenidoIPC/5_Expresiones/Asignacion.html" target="_blank">
+        <button class="button-regresar">Regresar</button>
+    </a>
+    <script>
+        function verificarRespuestas() {
+            // Obtener las respuestas seleccionadas por el usuario
+            var selectedAnswer1 = document.querySelector('input[name="answer1"]:checked');
+            var selectedAnswer2 = document.querySelector('input[name="answer2"]:checked');
+            var selectedAnswer3 = document.querySelector('input[name="answer3"]:checked');
+
+            // Verificar si se han seleccionado ambas respuestas
+            if (selectedAnswer1 && selectedAnswer2 && selectedAnswer3) {
+                var userAnswer1 = selectedAnswer1.value;
+                var userAnswer2 = selectedAnswer2.value;
+                var userAnswer3 = selectedAnswer3.value;
+
+                // Verificar las respuestas
+                if (userAnswer1 === "d" && userAnswer2 === "b" && userAnswer3 === "a") {
+                    mostrarResultado("¡Correcto!", true);
+                } else {
+                    mostrarResultado("Incorrecto. Inténtalo de nuevo.", false);
+                }
+            } else {
+                mostrarResultado("Por favor, selecciona una respuesta para cada pregunta.", false);
+            }
+        }
+
+        function mostrarResultado(mensaje, esCorrecto) {
+            var resultContainer = document.getElementById("resultContainer");
+
+            // Limpiar el contenedor de resultados
+            resultContainer.innerHTML = "";
+
+            // Crear un elemento de párrafo para mostrar el resultado
+            var resultadoParrafo = document.createElement("p");
+
+            // Establecer el contenido y el color del texto según si es correcto o incorrecto
+            resultadoParrafo.textContent = mensaje;
+            resultadoParrafo.style.color = esCorrecto ? "green" : "red";
+
+            // Agregar el párrafo al contenedor de resultados
+            resultContainer.appendChild(resultadoParrafo);
+        }
+    </script>
+</body>
+</html>

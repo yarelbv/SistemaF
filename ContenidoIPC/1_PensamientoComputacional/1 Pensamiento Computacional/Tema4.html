@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmos</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Algoritmos</h1>
+    <p>¿Cuáles son las tres partes fundamentales de un algoritmo, según el texto proporcionado?</p>
+    <form id="question1">
+        <label>
+            <input type="radio" name="answer1" value="a">A, B, C<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="b">Input, Proceso, Output<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="c">Entrada, Transformación, Resultado<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="d">Inicio, Desarrollo, Final<br>
+        </label>
+    </form>
+    <p>¿Cómo se define la parte de un algoritmo que corresponde a la "Información que se da al algoritmo para ofrecer la solución esperada"?</p>
+    <form id="question2">
+        <label>
+            <input type="radio" name="answer2" value="a">Proceso<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="b">Entrada<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="c">Resultado<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="d">Transformación<br>
+        </label>
+    </form>
+    <p>¿Cómo se define la parte de un algoritmo que corresponde al "Conjunto de pasos para que, a partir de los datos de entrada, llegue a la solución de la situación"?</p>
+    <form id="question3">
+        <label>
+            <input type="radio" name="answer3" value="a">Resultado<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="b">Transformación<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="c">Proceso<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="d">Output<br>
+        </label>
+    </form>
+   
+    <p>Escribir un programa que pregunte el nombre del usuario en la consola y después de que el usuario lo introduzca muestre por pantalla la cadena ¡Hola <nombre>!, donde <nombre> es el nombre que el usuario haya introducido.</p>
+    <button type="button" class="button onclick="verificarRespuestas()">Verificar</button>
+    <div id="resultContainer"></div>
+    <a href="/ContenidoIPC/1_PensamientoComputacional/Algoritmos.html" target="_blank">
+        <button class="button-regresar">Regresar</button>
+    </a>
+    <script>
+        function verificarRespuestas() {
+            // Obtener las respuestas seleccionadas por el usuario
+            var selectedAnswer1 = document.querySelector('input[name="answer1"]:checked');
+            var selectedAnswer2 = document.querySelector('input[name="answer2"]:checked');
+            var selectedAnswer3 = document.querySelector('input[name="answer3"]:checked');
+
+            // Verificar si se han seleccionado ambas respuestas
+            if (selectedAnswer1 && selectedAnswer2 && selectedAnswer3) {
+                var userAnswer1 = selectedAnswer1.value;
+                var userAnswer2 = selectedAnswer2.value;
+                var userAnswer3 = selectedAnswer3.value;
+
+                // Verificar las respuestas
+                if (userAnswer1 === "b" && userAnswer2 === "b" && userAnswer3 === "c") {
+                    mostrarResultado("¡Correcto!", true);
+                } else {
+                    mostrarResultado("Incorrecto. Inténtalo de nuevo.", false);
+                }
+            } else {
+                mostrarResultado("Por favor, selecciona una respuesta para cada pregunta.", false);
+            }
+        }
+
+        function mostrarResultado(mensaje, esCorrecto) {
+            var resultContainer = document.getElementById("resultContainer");
+
+            // Limpiar el contenedor de resultados
+            resultContainer.innerHTML = "";
+
+            // Crear un elemento de párrafo para mostrar el resultado
+            var resultadoParrafo = document.createElement("p");
+
+            // Establecer el contenido y el color del texto según si es correcto o incorrecto
+            resultadoParrafo.textContent = mensaje;
+            resultadoParrafo.style.color = esCorrecto ? "green" : "red";
+
+            // Agregar el párrafo al contenedor de resultados
+            resultContainer.appendChild(resultadoParrafo);
+        }
+
+    </script>
+</body>
+</html>

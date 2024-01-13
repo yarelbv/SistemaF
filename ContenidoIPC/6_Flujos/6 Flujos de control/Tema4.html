@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructuras Repetitivas</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Estructuras Repetitivas</h1>
+    <p>¿Cuándo se utilizan las estructuras repetitivas en programación y cuál es su propósito principal?</p>
+    <form id="question1">
+        <label>
+            <input type="radio" name="answer1" value="a">Se utilizan cuando se quiere ejecutar un conjunto de instrucciones un número finito de veces, y su propósito principal es repetir procesos indefinidamente.<br>
+        </label>           
+        <label>
+            <input type="radio" name="answer1" value="b">Se utilizan cuando se quiere repetir procesos indefinidamente, y su propósito principal es ejecutar un conjunto de instrucciones un número finito de veces.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="c">Se utilizan para procesos que se repiten indefinidamente, y su propósito principal es controlar el número de iteraciones o pasos.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="d">Se utilizan cuando se quiere ejecutar un conjunto de instrucciones un número finito de veces, y su propósito principal es repetir procesos un número específico de veces.<br>
+        </label>
+    </form>
+    <p>¿En qué se diferencia la estructura Para-Desde de otras estructuras repetitivas y cuál es su clave característica?</p>
+    <form id="question2">
+        <label>
+            <input type="radio" name="answer2" value="a">La estructura Para-Desde ejecuta las acciones del bucle un número especificado de veces, mientras que otras estructuras repetitivas repiten procesos indefinidamente.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="b">La estructura Para-Desde repite procesos indefinidamente, mientras que otras estructuras repetitivas ejecutan las acciones del bucle un número especificado de veces.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="c">La clave característica de la estructura Para-Desde es que controla automáticamente el número de iteraciones o pasos, mientras que otras estructuras repetitivas requieren un control manual.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="d">La estructura Para-Desde ejecuta las acciones del bucle un número especificado de veces, y su clave característica es que controla manualmente el número de iteraciones o pasos.<br>
+        </label>
+    </form>
+    <p>¿Cuál es la diferencia principal entre las estructuras Repetir y Mientras en términos de cómo evalúan la condición del bucle?</p>
+    <form id="question3">
+        <label>
+            <input type="radio" name="answer3" value="a">La estructura "Repetir" evalúa la condición al inicio y se ejecuta solo si la condición es verdadera, mientras que la estructura "Mientras" evalúa la condición al final y se ejecuta siempre, incluso si la condición es falsa.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="b">La estructura "Repetir" evalúa la condición al final y se ejecuta solo si la condición es verdadera, mientras que la estructura "Mientras" evalúa la condición al inicio y se ejecuta siempre, incluso si la condición es falsa.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="c">Ambas estructuras evalúan la condición al inicio y se ejecutan solo si la condición es verdadera.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="d">Ambas estructuras evalúan la condición al final y se ejecutan siempre, incluso si la condición es falsa.<br>
+        </label>
+    </form>
+
+    <p>Imagina que estás desarrollando un programa para una tienda en línea. Implementa una estructura repetitiva que simula el proceso de agregar productos al carrito de compras. Utiliza un bucle para permitir que el usuario seleccione productos y los agregue al carrito varias veces. La ejecución del bucle debería ser controlada por el usuario, quien puede decidir cuándo detenerse.</p>
+    <button type="button" class="button" onclick="verificarRespuestas()">Verificar</button>
+    <div id="resultContainer"></div>
+    <a href="/ContenidoIPC/6_Flujos/Repetitivas.html" target="_blank">
+        <button class="button-regresar">Regresar</button>
+    </a>
+    <script>
+        function verificarRespuestas() {
+            // Obtener las respuestas seleccionadas por el usuario
+            var selectedAnswer1 = document.querySelector('input[name="answer1"]:checked');
+            var selectedAnswer2 = document.querySelector('input[name="answer2"]:checked');
+            var selectedAnswer3 = document.querySelector('input[name="answer3"]:checked');
+
+            // Verificar si se han seleccionado ambas respuestas
+            if (selectedAnswer1 && selectedAnswer2 && selectedAnswer3) {
+                var userAnswer1 = selectedAnswer1.value;
+                var userAnswer2 = selectedAnswer2.value;
+                var userAnswer3 = selectedAnswer3.value;
+
+                // Verificar las respuestas
+                if (userAnswer1 === "d" && userAnswer2 === "c" && userAnswer3 === "a") {
+                    mostrarResultado("¡Correcto!", true);
+                } else {
+                    mostrarResultado("Incorrecto. Inténtalo de nuevo.", false);
+                }
+            } else {
+                mostrarResultado("Por favor, selecciona una respuesta para cada pregunta.", false);
+            }
+        }
+
+        function mostrarResultado(mensaje, esCorrecto) {
+            var resultContainer = document.getElementById("resultContainer");
+
+            // Limpiar el contenedor de resultados
+            resultContainer.innerHTML = "";
+
+            // Crear un elemento de párrafo para mostrar el resultado
+            var resultadoParrafo = document.createElement("p");
+
+            // Establecer el contenido y el color del texto según si es correcto o incorrecto
+            resultadoParrafo.textContent = mensaje;
+            resultadoParrafo.style.color = esCorrecto ? "green" : "red";
+
+            // Agregar el párrafo al contenedor de resultados
+            resultContainer.appendChild(resultadoParrafo);
+        }
+    </script>
+</body>
+</html>

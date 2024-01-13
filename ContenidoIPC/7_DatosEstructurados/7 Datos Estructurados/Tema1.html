@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arreglo Unidimensional</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Arreglo Unidimensional</h1>
+    <p>¿Qué es un arreglo unidimensional y cuál es su principal característica en términos de los datos que pueden almacenar?</p>
+    <form id="question1">
+        <label>
+            <input type="radio" name="answer1" value="a">Un arreglo unidimensional es una estructura de datos que puede almacenar datos de diferentes tipos en una sola estructura.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="b">Un arreglo unidimensional es un tipo de dato que permite almacenar un conjunto de datos homogéneos, es decir, del mismo tipo de dato.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="c">Un arreglo unidimensional es una estructura de datos que solo puede almacenar datos de tipo numérico.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="d">Un arreglo unidimensional es una estructura de datos que solo puede almacenar datos de tipo booleano.<br>
+        </label>
+    </form>
+    <p>En la declaración de un arreglo unidimensional, ¿qué información debe proporcionar al programador además del tipo de datos que contendrá?</p>
+    <form id="question2">
+        <label>
+            <input type="radio" name="answer2" value="a">Solo se necesita el tipo de datos; no es necesario proporcionar más información.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="b">El programador no necesita proporcionar ninguna información adicional.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="c">Además del tipo de datos, el programador debe indicar el nombre del arreglo y su posición en la memoria.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="d">Además del tipo de datos, el programador debe indicar el tamaño del arreglo.<br>
+        </label>
+    </form>
+    <p>¿Cuál es el límite natural en la dimensión de los arreglos unidimensionales y qué factor determina este límite según el texto?</p>
+    <form id="question3">
+        <label>
+            <input type="radio" name="answer3" value="a">El límite natural en la dimensión de los arreglos unidimensionales es determinado por el tipo de datos que pueden almacenar.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="b">El límite natural en la dimensión de los arreglos unidimensionales es la memoria de la computadora, y este límite es determinado por el tipo de datos que pueden almacenar.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="c">El límite natural en la dimensión de los arreglos unidimensionales es la memoria de la computadora, y este límite es determinado por el tamaño del programa.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="d">El límite natural en la dimensión de los arreglos unidimensionales es determinado por el tamaño del programa.<br>
+        </label>
+    </form>
+
+    <p>Crea un programa en Python que simula el almacenamiento de temperaturas donde se utiliza un arreglo unidimensional para almacenar los datos. Asegúrese de declarar el arreglo con un tamaño específico y asignar valores a sus elementos.</p>
+    <button type="button" class="button" onclick="verificarRespuestas()">Verificar</button>
+    <div id="resultContainer"></div>
+    <a href="/ContenidoIPC/7_DatosEstructurados/Unidimensional.html" target="_blank">
+        <button class="button-regresar">Regresar</button>
+    </a>
+    <script>
+        function verificarRespuestas() {
+            // Obtener las respuestas seleccionadas por el usuario
+            var selectedAnswer1 = document.querySelector('input[name="answer1"]:checked');
+            var selectedAnswer2 = document.querySelector('input[name="answer2"]:checked');
+            var selectedAnswer3 = document.querySelector('input[name="answer3"]:checked');
+
+            // Verificar si se han seleccionado ambas respuestas
+            if (selectedAnswer1 && selectedAnswer2 && selectedAnswer3) {
+                var userAnswer1 = selectedAnswer1.value;
+                var userAnswer2 = selectedAnswer2.value;
+                var userAnswer3 = selectedAnswer3.value;
+
+                // Verificar las respuestas
+                if (userAnswer1 === "b" && userAnswer2 === "d" && userAnswer3 === "") {
+                    mostrarResultado("¡Correcto!", true);
+                } else {
+                    mostrarResultado("Incorrecto. Inténtalo de nuevo.", false);
+                }
+            } else {
+                mostrarResultado("Por favor, selecciona una respuesta para cada pregunta.", false);
+            }
+        }
+
+        function mostrarResultado(mensaje, esCorrecto) {
+            var resultContainer = document.getElementById("resultContainer");
+
+            // Limpiar el contenedor de resultados
+            resultContainer.innerHTML = "";
+
+            // Crear un elemento de párrafo para mostrar el resultado
+            var resultadoParrafo = document.createElement("p");
+
+            // Establecer el contenido y el color del texto según si es correcto o incorrecto
+            resultadoParrafo.textContent = mensaje;
+            resultadoParrafo.style.color = esCorrecto ? "green" : "red";
+
+            // Agregar el párrafo al contenedor de resultados
+            resultContainer.appendChild(resultadoParrafo);
+        }
+    </script>
+</body>
+</html>

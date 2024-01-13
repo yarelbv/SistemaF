@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expresiones aritméticas</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Expresiones aritméticas</h1>
+    <p>¿Cuál es la finalidad del operador - (unary)en una expresión aritmética?</p>
+    <form id="question1">
+        <label>
+            <input type="radio" name="answer1" value="a">Realizar una adición del valor del operando.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="b">Multiplicar el valor del operando por -1.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="c">Negar el valor del operando.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="d">Dividir el valor del operando entre -1.<br>
+        </label>
+    </form>
+    <p>¿Cuál es la asociatividad de los operadores *, div, idiv, moden términos de la dirección en la que se evalúan en una expresión?</p>
+    <form id="question2">
+        <label>
+            <input type="radio" name="answer2" value="a">Derecha a izquierda.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="b">Izquierda a derecha.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="c">Asociatividad circular.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="d">Asociatividad de zigzag.<br>
+        </label>
+    </form>
+    <p>¿Qué tipos de resultados puede tener una expresión aritmética?</p>
+    <form id="question3">
+        <label>
+            <input type="radio" name="answer3" value="a">Únicamente valores numéricos.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="b">Valores numéricos, valores de fecha u hora, valores de duración, secuencia vacía y error.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="c">Solo valores de fecha u hora y valores numéricos.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="d">Valores de fecha u hora, valores de duración y secuencia vacía.<br>
+        </label>
+    </form>
+
+    <p>Crea un programa en Python que realiza algunas operaciones aritméticas básicas. Puedes usar variables para representar los valores y aplicar los operadores mencionados en el texto y la tabla. Luego, muestra el resultado de cada operación en la consola.</p>
+    <button type="button" class="button" onclick="verificarRespuestas()">Verificar</button>
+    <div id="resultContainer"></div>
+    <a href="/ContenidoIPC/5_Expresiones/Aritmeticas.html" target="_blank">
+        <button class="button-regresar">Regresar</button>
+    </a>
+    <script>
+        function verificarRespuestas() {
+            // Obtener las respuestas seleccionadas por el usuario
+            var selectedAnswer1 = document.querySelector('input[name="answer1"]:checked');
+            var selectedAnswer2 = document.querySelector('input[name="answer2"]:checked');
+            var selectedAnswer3 = document.querySelector('input[name="answer3"]:checked');
+
+            // Verificar si se han seleccionado ambas respuestas
+            if (selectedAnswer1 && selectedAnswer2 && selectedAnswer3) {
+                var userAnswer1 = selectedAnswer1.value;
+                var userAnswer2 = selectedAnswer2.value;
+                var userAnswer3 = selectedAnswer3.value;
+
+                // Verificar las respuestas
+                if (userAnswer1 === "c" && userAnswer2 === "b" && userAnswer3 === "b") {
+                    mostrarResultado("¡Correcto!", true);
+                } else {
+                    mostrarResultado("Incorrecto. Inténtalo de nuevo.", false);
+                }
+            } else {
+                mostrarResultado("Por favor, selecciona una respuesta para cada pregunta.", false);
+            }
+        }
+
+        function mostrarResultado(mensaje, esCorrecto) {
+            var resultContainer = document.getElementById("resultContainer");
+
+            // Limpiar el contenedor de resultados
+            resultContainer.innerHTML = "";
+
+            // Crear un elemento de párrafo para mostrar el resultado
+            var resultadoParrafo = document.createElement("p");
+
+            // Establecer el contenido y el color del texto según si es correcto o incorrecto
+            resultadoParrafo.textContent = mensaje;
+            resultadoParrafo.style.color = esCorrecto ? "green" : "red";
+
+            // Agregar el párrafo al contenedor de resultados
+            resultContainer.appendChild(resultadoParrafo);
+        }
+    </script>
+</body>
+</html>

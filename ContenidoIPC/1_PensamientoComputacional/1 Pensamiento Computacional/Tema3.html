@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abstracción y Tipo de datos abstractos</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Abstracción y Tipo de datos abstractos</h1>
+    <p>¿Cómo se define un Tipo de Dato Abstracto (TDA) como una serie de N elementos en el contexto del texto?</p>
+    <form id="question1">
+        <label>
+            <input type="radio" name="answer1" value="a">Lista de N elementos, donde N es un número arbitrario.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="b">Serie de elementos indefinidos.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="c">Colección de N elementos dispuestos al azar.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer1" value="d">Conjunto de N elementos ordenados de manera consecutiva.<br>
+        </label>
+    </form>
+    <p>¿Cómo se describe una Pila en el contexto del Tipo de Dato Abstracto (TDA)?</p>
+    <form id="question2">
+        <label>
+            <input type="radio" name="answer2" value="a"> Lista donde se pueden extraer elementos desde el inicio de la lista.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="b">Lista de elementos ordenados de manera consecutiva.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="c">Lista de elementos de la cual solo se puede extraer el último elemento insertado.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer2" value="d">Lista que permite insertar nuevos elementos y extraer el máximo<br>
+        </label>
+    </form>
+    <p>¿Cómo se describe una Cola en el contexto del Tipo de Dato Abstracto (TDA)?</p>
+    <form id="question3">
+        <label>
+            <input type="radio" name="answer3" value="a">Lista que permite extraer el último elemento insertado.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="b">Lista de elementos dispuestos al azar.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="c">Lista de elementos en donde siempre se insertan nuevos elementos al final y se extraen desde el inicio.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer3" value="d">Lista ordenada de elementos según un criterio establecido.<br>
+        </label>
+    </form>
+    <p>¿Cómo se describe un Tipo de Dato Abstracto (TDA) que almacena un conjunto de datos con una llave perteneciente a algún conjunto ordenado?</p>
+    <form id="question4">
+        <label>
+            <input type="radio" name="answer4" value="a">Cola de Prioridad, que almacena datos con una llave perteneciente a un conjunto ordenado.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer4" value="b">Pila que solo permite extraer el último elemento insertado.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer4" value="c">Conjunto de datos abstracto que permite insertar nuevos elementos y extraer el máximo.<br>
+        </label>
+        <label>
+            <input type="radio" name="answer4" value="d">Lista de elementos en donde siempre se insertan nuevos elementos al final y se extraen desde el inicio.<br>
+        </label>
+    </form>
+   
+    <p>Crea un Hola Mundo con Python</p>
+    <button type="button" class="button onclick="verificarRespuestas()">Verificar</button>
+    <div id="resultContainer"></div>
+    <a href="/ContenidoIPC/1_PensamientoComputacional/Abstraccion.html" target="_blank">
+        <button class="button-regresar">Regresar</button>
+    </a>
+    <script>
+        function verificarRespuestas() {
+            // Obtener las respuestas seleccionadas por el usuario
+            var selectedAnswer1 = document.querySelector('input[name="answer1"]:checked');
+            var selectedAnswer2 = document.querySelector('input[name="answer2"]:checked');
+            var selectedAnswer3 = document.querySelector('input[name="answer3"]:checked');
+            var selectedAnswer4 = document.querySelector('input[name="answer4"]:checked');
+
+            // Verificar si se han seleccionado ambas respuestas
+            if (selectedAnswer1 && selectedAnswer2 && selectedAnswer3 && selectedAnswer4) {
+                var userAnswer1 = selectedAnswer1.value;
+                var userAnswer2 = selectedAnswer2.value;
+                var userAnswer3 = selectedAnswer3.value;
+                var userAnswer4 = selectedAnswer4.value;
+
+                // Verificar las respuestas
+                if (userAnswer1 === "d" && userAnswer2 === "c" && userAnswer3 === "c" && userAnswer4 === "a") {
+                    mostrarResultado("¡Correcto!", true);
+                } else {
+                    mostrarResultado("Incorrecto. Inténtalo de nuevo.", false);
+                }
+            } else {
+                mostrarResultado("Por favor, selecciona una respuesta para cada pregunta.", false);
+            }
+        }
+
+        function mostrarResultado(mensaje, esCorrecto) {
+            var resultContainer = document.getElementById("resultContainer");
+
+            // Limpiar el contenedor de resultados
+            resultContainer.innerHTML = "";
+
+            // Crear un elemento de párrafo para mostrar el resultado
+            var resultadoParrafo = document.createElement("p");
+
+            // Establecer el contenido y el color del texto según si es correcto o incorrecto
+            resultadoParrafo.textContent = mensaje;
+            resultadoParrafo.style.color = esCorrecto ? "green" : "red";
+
+            // Agregar el párrafo al contenedor de resultados
+            resultContainer.appendChild(resultadoParrafo);
+        }
+    </script>
+</body>
+</html>
